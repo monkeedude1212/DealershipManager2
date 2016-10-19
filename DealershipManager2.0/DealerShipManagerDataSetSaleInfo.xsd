@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DealerShipManagerDataSetSaleInfo" targetNamespace="http://tempuri.org/DealerShipManagerDataSetSaleInfo.xsd" xmlns:mstns="http://tempuri.org/DealerShipManagerDataSetSaleInfo.xsd" xmlns="http://tempuri.org/DealerShipManagerDataSetSaleInfo.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DealershipManagerConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DealershipManagerConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DealershipManager2._0.Properties.Settings.GlobalReference.Default.DealershipManagerConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SaleInfoTableAdapter" GeneratorDataComponentClassName="SaleInfoTableAdapter" Name="SaleInfo" UserDataComponentName="SaleInfoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DealershipManagerConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Customer.FirstName, Customer.LastName, Customer.Id AS CustomerID, Vehicle.Id AS VehicleId, Vehicle.VIN, Vehicle.Make, Vehicle.Model, Vehicle.Year, 
+                         TradeIn.Id AS TradeID, TradeIn.VIN AS TradeVin, TradeIn.Make AS TradeMake, TradeIn.Model AS TradeModel, TradeIn.Year AS TradeYear, Sale.id, 
+                         Sale.VehicleMilage, Sale.TradeInVehicle, Sale.Date AS SaleDate, Sale.SalesPerson, Sale.Price, Sale.TradeAllowance, Sale.AdminFee, Sale.Interest, Sale.GST, 
+                         Sale.Deposit, Sale.Warranty, Sale.WarrantyGST, Sale.TotalBalance, Sale.Notes, Sale.Rate, Sale.PaymentDue, Sale.noPayments, Sale.paymentFrequency, 
+                         Sale.[current], Sale.TotalCostofVehicle, Sale.PayoutonLien, Sale.CurrentBalance, Sale.GrossCommission, Sale.FlatCommission
+FROM            Sale LEFT OUTER JOIN
+                         Vehicle ON Sale.VehicleId = Vehicle.Id LEFT OUTER JOIN
+                         Vehicle AS TradeIn ON Sale.TradeInVehicle = TradeIn.Id LEFT OUTER JOIN
+                         Customer ON Sale.CustomerId = Customer.Id
+ORDER BY SaleDate DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FirstName" DataSetColumn="FirstName" />
+              <Mapping SourceColumn="LastName" DataSetColumn="LastName" />
+              <Mapping SourceColumn="VIN" DataSetColumn="VIN" />
+              <Mapping SourceColumn="Make" DataSetColumn="Make" />
+              <Mapping SourceColumn="Model" DataSetColumn="Model" />
+              <Mapping SourceColumn="Year" DataSetColumn="Year" />
+              <Mapping SourceColumn="TradeID" DataSetColumn="TradeID" />
+              <Mapping SourceColumn="TradeVin" DataSetColumn="TradeVin" />
+              <Mapping SourceColumn="TradeMake" DataSetColumn="TradeMake" />
+              <Mapping SourceColumn="TradeModel" DataSetColumn="TradeModel" />
+              <Mapping SourceColumn="TradeYear" DataSetColumn="TradeYear" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="VehicleId" DataSetColumn="VehicleId" />
+              <Mapping SourceColumn="VehicleMilage" DataSetColumn="VehicleMilage" />
+              <Mapping SourceColumn="TradeInVehicle" DataSetColumn="TradeInVehicle" />
+              <Mapping SourceColumn="SalesPerson" DataSetColumn="SalesPerson" />
+              <Mapping SourceColumn="Price" DataSetColumn="Price" />
+              <Mapping SourceColumn="TradeAllowance" DataSetColumn="TradeAllowance" />
+              <Mapping SourceColumn="AdminFee" DataSetColumn="AdminFee" />
+              <Mapping SourceColumn="Interest" DataSetColumn="Interest" />
+              <Mapping SourceColumn="GST" DataSetColumn="GST" />
+              <Mapping SourceColumn="Deposit" DataSetColumn="Deposit" />
+              <Mapping SourceColumn="Warranty" DataSetColumn="Warranty" />
+              <Mapping SourceColumn="WarrantyGST" DataSetColumn="WarrantyGST" />
+              <Mapping SourceColumn="TotalBalance" DataSetColumn="TotalBalance" />
+              <Mapping SourceColumn="Notes" DataSetColumn="Notes" />
+              <Mapping SourceColumn="Rate" DataSetColumn="Rate" />
+              <Mapping SourceColumn="PaymentDue" DataSetColumn="PaymentDue" />
+              <Mapping SourceColumn="noPayments" DataSetColumn="noPayments" />
+              <Mapping SourceColumn="paymentFrequency" DataSetColumn="paymentFrequency" />
+              <Mapping SourceColumn="current" DataSetColumn="current" />
+              <Mapping SourceColumn="TotalCostofVehicle" DataSetColumn="TotalCostofVehicle" />
+              <Mapping SourceColumn="PayoutonLien" DataSetColumn="PayoutonLien" />
+              <Mapping SourceColumn="CurrentBalance" DataSetColumn="CurrentBalance" />
+              <Mapping SourceColumn="GrossCommission" DataSetColumn="GrossCommission" />
+              <Mapping SourceColumn="FlatCommission" DataSetColumn="FlatCommission" />
+              <Mapping SourceColumn="CustomerID" DataSetColumn="CustomerID" />
+              <Mapping SourceColumn="SaleDate" DataSetColumn="SaleDate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DealerShipManagerDataSetSaleInfo" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DealerShipManagerDataSetSaleInfo" msprop:Generator_UserDSName="DealerShipManagerDataSetSaleInfo">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SaleInfo" msprop:Generator_TableClassName="SaleInfoDataTable" msprop:Generator_TableVarName="tableSaleInfo" msprop:Generator_TablePropName="SaleInfo" msprop:Generator_RowDeletingName="SaleInfoRowDeleting" msprop:Generator_UserTableName="SaleInfo" msprop:Generator_RowChangingName="SaleInfoRowChanging" msprop:Generator_RowEvHandlerName="SaleInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="SaleInfoRowDeleted" msprop:Generator_RowEvArgName="SaleInfoRowChangeEvent" msprop:Generator_RowChangedName="SaleInfoRowChanged" msprop:Generator_RowClassName="SaleInfoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_UserColumnName="LastName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VIN" msprop:Generator_ColumnVarNameInTable="columnVIN" msprop:Generator_ColumnPropNameInRow="VIN" msprop:Generator_ColumnPropNameInTable="VINColumn" msprop:Generator_UserColumnName="VIN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Make" msprop:Generator_ColumnVarNameInTable="columnMake" msprop:Generator_ColumnPropNameInRow="Make" msprop:Generator_ColumnPropNameInTable="MakeColumn" msprop:Generator_UserColumnName="Make" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Model" msprop:Generator_ColumnVarNameInTable="columnModel" msprop:Generator_ColumnPropNameInRow="Model" msprop:Generator_ColumnPropNameInTable="ModelColumn" msprop:Generator_UserColumnName="Model" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:int" minOccurs="0" />
+              <xs:element name="TradeID" msprop:Generator_ColumnVarNameInTable="columnTradeID" msprop:Generator_ColumnPropNameInRow="TradeID" msprop:Generator_ColumnPropNameInTable="TradeIDColumn" msprop:Generator_UserColumnName="TradeID" type="xs:int" minOccurs="0" />
+              <xs:element name="TradeVin" msprop:Generator_ColumnVarNameInTable="columnTradeVin" msprop:Generator_ColumnPropNameInRow="TradeVin" msprop:Generator_ColumnPropNameInTable="TradeVinColumn" msprop:Generator_UserColumnName="TradeVin" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TradeMake" msprop:Generator_ColumnVarNameInTable="columnTradeMake" msprop:Generator_ColumnPropNameInRow="TradeMake" msprop:Generator_ColumnPropNameInTable="TradeMakeColumn" msprop:Generator_UserColumnName="TradeMake" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TradeModel" msprop:Generator_ColumnVarNameInTable="columnTradeModel" msprop:Generator_ColumnPropNameInRow="TradeModel" msprop:Generator_ColumnPropNameInTable="TradeModelColumn" msprop:Generator_UserColumnName="TradeModel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TradeYear" msprop:Generator_ColumnVarNameInTable="columnTradeYear" msprop:Generator_ColumnPropNameInRow="TradeYear" msprop:Generator_ColumnPropNameInTable="TradeYearColumn" msprop:Generator_UserColumnName="TradeYear" type="xs:int" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="VehicleId" msprop:Generator_ColumnVarNameInTable="columnVehicleId" msprop:Generator_ColumnPropNameInRow="VehicleId" msprop:Generator_ColumnPropNameInTable="VehicleIdColumn" msprop:Generator_UserColumnName="VehicleId" type="xs:int" minOccurs="0" />
+              <xs:element name="VehicleMilage" msprop:Generator_ColumnVarNameInTable="columnVehicleMilage" msprop:Generator_ColumnPropNameInRow="VehicleMilage" msprop:Generator_ColumnPropNameInTable="VehicleMilageColumn" msprop:Generator_UserColumnName="VehicleMilage">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TradeInVehicle" msprop:Generator_ColumnVarNameInTable="columnTradeInVehicle" msprop:Generator_ColumnPropNameInRow="TradeInVehicle" msprop:Generator_ColumnPropNameInTable="TradeInVehicleColumn" msprop:Generator_UserColumnName="TradeInVehicle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SalesPerson" msprop:Generator_ColumnVarNameInTable="columnSalesPerson" msprop:Generator_ColumnPropNameInRow="SalesPerson" msprop:Generator_ColumnPropNameInTable="SalesPersonColumn" msprop:Generator_UserColumnName="SalesPerson" type="xs:int" minOccurs="0" />
+              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:double" />
+              <xs:element name="TradeAllowance" msprop:Generator_ColumnVarNameInTable="columnTradeAllowance" msprop:Generator_ColumnPropNameInRow="TradeAllowance" msprop:Generator_ColumnPropNameInTable="TradeAllowanceColumn" msprop:Generator_UserColumnName="TradeAllowance" type="xs:double" minOccurs="0" />
+              <xs:element name="AdminFee" msprop:Generator_ColumnVarNameInTable="columnAdminFee" msprop:Generator_ColumnPropNameInRow="AdminFee" msprop:Generator_ColumnPropNameInTable="AdminFeeColumn" msprop:Generator_UserColumnName="AdminFee" type="xs:double" minOccurs="0" />
+              <xs:element name="Interest" msprop:Generator_ColumnVarNameInTable="columnInterest" msprop:Generator_ColumnPropNameInRow="Interest" msprop:Generator_ColumnPropNameInTable="InterestColumn" msprop:Generator_UserColumnName="Interest" type="xs:double" minOccurs="0" />
+              <xs:element name="GST" msprop:Generator_ColumnVarNameInTable="columnGST" msprop:Generator_ColumnPropNameInRow="GST" msprop:Generator_ColumnPropNameInTable="GSTColumn" msprop:Generator_UserColumnName="GST" type="xs:double" minOccurs="0" />
+              <xs:element name="Deposit" msprop:Generator_ColumnVarNameInTable="columnDeposit" msprop:Generator_ColumnPropNameInRow="Deposit" msprop:Generator_ColumnPropNameInTable="DepositColumn" msprop:Generator_UserColumnName="Deposit" type="xs:double" minOccurs="0" />
+              <xs:element name="Warranty" msprop:Generator_ColumnVarNameInTable="columnWarranty" msprop:Generator_ColumnPropNameInRow="Warranty" msprop:Generator_ColumnPropNameInTable="WarrantyColumn" msprop:Generator_UserColumnName="Warranty" type="xs:double" minOccurs="0" />
+              <xs:element name="WarrantyGST" msprop:Generator_ColumnVarNameInTable="columnWarrantyGST" msprop:Generator_ColumnPropNameInRow="WarrantyGST" msprop:Generator_ColumnPropNameInTable="WarrantyGSTColumn" msprop:Generator_UserColumnName="WarrantyGST" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalBalance" msprop:Generator_ColumnVarNameInTable="columnTotalBalance" msprop:Generator_ColumnPropNameInRow="TotalBalance" msprop:Generator_ColumnPropNameInTable="TotalBalanceColumn" msprop:Generator_UserColumnName="TotalBalance" type="xs:double" />
+              <xs:element name="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_UserColumnName="Notes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Rate" msprop:Generator_ColumnVarNameInTable="columnRate" msprop:Generator_ColumnPropNameInRow="Rate" msprop:Generator_ColumnPropNameInTable="RateColumn" msprop:Generator_UserColumnName="Rate" type="xs:double" minOccurs="0" />
+              <xs:element name="PaymentDue" msprop:Generator_ColumnVarNameInTable="columnPaymentDue" msprop:Generator_ColumnPropNameInRow="PaymentDue" msprop:Generator_ColumnPropNameInTable="PaymentDueColumn" msprop:Generator_UserColumnName="PaymentDue" type="xs:double" minOccurs="0" />
+              <xs:element name="noPayments" msprop:Generator_ColumnVarNameInTable="columnnoPayments" msprop:Generator_ColumnPropNameInRow="noPayments" msprop:Generator_ColumnPropNameInTable="noPaymentsColumn" msprop:Generator_UserColumnName="noPayments" type="xs:int" minOccurs="0" />
+              <xs:element name="paymentFrequency" msprop:Generator_ColumnVarNameInTable="columnpaymentFrequency" msprop:Generator_ColumnPropNameInRow="paymentFrequency" msprop:Generator_ColumnPropNameInTable="paymentFrequencyColumn" msprop:Generator_UserColumnName="paymentFrequency" type="xs:int" minOccurs="0" />
+              <xs:element name="current" msprop:Generator_ColumnVarNameInTable="columncurrent" msprop:Generator_ColumnPropNameInRow="current" msprop:Generator_ColumnPropNameInTable="currentColumn" msprop:Generator_UserColumnName="current" type="xs:boolean" />
+              <xs:element name="TotalCostofVehicle" msprop:Generator_ColumnVarNameInTable="columnTotalCostofVehicle" msprop:Generator_ColumnPropNameInRow="TotalCostofVehicle" msprop:Generator_ColumnPropNameInTable="TotalCostofVehicleColumn" msprop:Generator_UserColumnName="TotalCostofVehicle" type="xs:double" minOccurs="0" />
+              <xs:element name="PayoutonLien" msprop:Generator_ColumnVarNameInTable="columnPayoutonLien" msprop:Generator_ColumnPropNameInRow="PayoutonLien" msprop:Generator_ColumnPropNameInTable="PayoutonLienColumn" msprop:Generator_UserColumnName="PayoutonLien" type="xs:double" minOccurs="0" />
+              <xs:element name="CurrentBalance" msprop:Generator_ColumnVarNameInTable="columnCurrentBalance" msprop:Generator_ColumnPropNameInRow="CurrentBalance" msprop:Generator_ColumnPropNameInTable="CurrentBalanceColumn" msprop:Generator_UserColumnName="CurrentBalance" type="xs:double" minOccurs="0" />
+              <xs:element name="GrossCommission" msprop:Generator_ColumnVarNameInTable="columnGrossCommission" msprop:Generator_ColumnPropNameInRow="GrossCommission" msprop:Generator_ColumnPropNameInTable="GrossCommissionColumn" msprop:Generator_UserColumnName="GrossCommission" type="xs:double" minOccurs="0" />
+              <xs:element name="FlatCommission" msprop:Generator_ColumnVarNameInTable="columnFlatCommission" msprop:Generator_ColumnPropNameInRow="FlatCommission" msprop:Generator_ColumnPropNameInTable="FlatCommissionColumn" msprop:Generator_UserColumnName="FlatCommission" type="xs:double" minOccurs="0" />
+              <xs:element name="CustomerID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_UserColumnName="CustomerID" type="xs:int" minOccurs="0" />
+              <xs:element name="SaleDate" msprop:Generator_ColumnVarNameInTable="columnSaleDate" msprop:Generator_ColumnPropNameInRow="SaleDate" msprop:Generator_ColumnPropNameInTable="SaleDateColumn" msprop:Generator_UserColumnName="SaleDate" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SaleInfo" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

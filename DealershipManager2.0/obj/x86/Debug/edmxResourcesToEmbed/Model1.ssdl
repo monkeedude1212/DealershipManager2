@@ -1,0 +1,478 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DealershipManagerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DealershipManagerModelStoreContainer">
+    <EntitySet Name="Contacts" EntityType="DealershipManagerModel.Store.Contacts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cost" EntityType="DealershipManagerModel.Store.Cost" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customer" EntityType="DealershipManagerModel.Store.Customer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerDocuments" EntityType="DealershipManagerModel.Store.CustomerDocuments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Features" EntityType="DealershipManagerModel.Store.Features" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Finance" EntityType="DealershipManagerModel.Store.Finance" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FollowUp" EntityType="DealershipManagerModel.Store.FollowUp" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Insurance" EntityType="DealershipManagerModel.Store.Insurance" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InsuranceBroker" EntityType="DealershipManagerModel.Store.InsuranceBroker" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InsuranceCompany" EntityType="DealershipManagerModel.Store.InsuranceCompany" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InsuranceVehicle" EntityType="DealershipManagerModel.Store.InsuranceVehicle" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lease" EntityType="DealershipManagerModel.Store.Lease" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LeasePayments" EntityType="DealershipManagerModel.Store.LeasePayments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Liens" EntityType="DealershipManagerModel.Store.Liens" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Payroll" EntityType="DealershipManagerModel.Store.Payroll" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="requests" EntityType="DealershipManagerModel.Store.requests" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sale" EntityType="DealershipManagerModel.Store.Sale" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Specifications" EntityType="DealershipManagerModel.Store.Specifications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Staff" EntityType="DealershipManagerModel.Store.Staff" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TmpCalculation" EntityType="DealershipManagerModel.Store.TmpCalculation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vehicle" EntityType="DealershipManagerModel.Store.Vehicle" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Current_Vehicles" EntityType="DealershipManagerModel.Store.Current_Vehicles" store:Type="Views" store:Schema="dbo" store:Name="Current_Vehicles">
+      <DefiningQuery>SELECT 
+      [Current_Vehicles].[Id] AS [Id], 
+      [Current_Vehicles].[VIN] AS [VIN], 
+      [Current_Vehicles].[Make] AS [Make], 
+      [Current_Vehicles].[Model] AS [Model], 
+      [Current_Vehicles].[Year] AS [Year], 
+      [Current_Vehicles].[Colour] AS [Colour], 
+      [Current_Vehicles].[Type] AS [Type], 
+      [Current_Vehicles].[InStock] AS [InStock], 
+      [Current_Vehicles].[DatePurchased] AS [DatePurchased], 
+      [Current_Vehicles].[InitialCost] AS [InitialCost], 
+      [Current_Vehicles].[SubModel] AS [SubModel], 
+      [Current_Vehicles].[InteriorColor] AS [InteriorColor], 
+      [Current_Vehicles].[photoPath] AS [photoPath], 
+      [Current_Vehicles].[Company] AS [Company], 
+      [Current_Vehicles].[PurchasedFrom] AS [PurchasedFrom], 
+      [Current_Vehicles].[notes] AS [notes]
+      FROM [dbo].[Current_Vehicles] AS [Current_Vehicles]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="20" />
+    <Property Name="Province" Type="nvarchar" MaxLength="2" />
+    <Property Name="Postal" Type="nvarchar" MaxLength="10" />
+    <Property Name="Country" Type="nvarchar" MaxLength="10" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="notes" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Cost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="VIN" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="WO" Type="nvarchar" MaxLength="20" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cost" Type="int" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Street" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="25" />
+    <Property Name="Province" Type="nvarchar" MaxLength="2" />
+    <Property Name="Postal" Type="nvarchar" MaxLength="10" />
+    <Property Name="Country" Type="nvarchar" MaxLength="10" />
+    <Property Name="HomePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="BusPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="OtherPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Crossreference" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birthdate" Type="nvarchar" MaxLength="50" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="BandName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BandNumber" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CustomerDocuments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="DriversLicense" Type="image" />
+    <Property Name="BillOfSale" Type="image" />
+    <Property Name="CreditApp" Type="image" />
+    <Property Name="PayroolAssignment" Type="image" />
+  </EntityType>
+  <EntityType Name="Features">
+    <Key>
+      <PropertyRef Name="VehicleId" />
+    </Key>
+    <Property Name="VehicleId" Type="int" Nullable="false" />
+    <Property Name="PowerSteering" Type="int" />
+    <Property Name="PowerWindows" Type="int" />
+    <Property Name="PowerBrakes" Type="int" />
+    <Property Name="PowerLocks" Type="int" />
+    <Property Name="PowerMirrors" Type="int" />
+    <Property Name="PowerSeats" Type="int" />
+    <Property Name="PowerTrunk" Type="int" />
+    <Property Name="Tilt" Type="int" />
+    <Property Name="Stereo" Type="int" />
+    <Property Name="Cassette" Type="int" />
+    <Property Name="CD" Type="int" />
+    <Property Name="Cruise" Type="int" />
+    <Property Name="BlockHeater" Type="int" />
+    <Property Name="AirConditioning" Type="int" />
+    <Property Name="ClimateControl" Type="int" />
+    <Property Name="HeatedSeats" Type="int" />
+    <Property Name="Sunroof" Type="int" />
+    <Property Name="TRoof" Type="int" />
+    <Property Name="RoofRack" Type="int" />
+    <Property Name="TintedWindows" Type="int" />
+    <Property Name="RemoteStarter" Type="int" />
+    <Property Name="KeylessEntry" Type="int" />
+    <Property Name="EngineImmobiliser" Type="int" />
+    <Property Name="Alarm" Type="int" />
+    <Property Name="RearWiper" Type="int" />
+    <Property Name="RearDefrost" Type="int" />
+    <Property Name="ChildProofLocks" Type="int" />
+    <Property Name="Spoilers" Type="int" />
+    <Property Name="TractionControl" Type="int" />
+    <Property Name="Turbo" Type="int" />
+    <Property Name="ABSBrakes" Type="int" />
+    <Property Name="AlloyWheels" Type="int" />
+    <Property Name="DAirBag" Type="int" />
+    <Property Name="pAirBag" Type="int" />
+    <Property Name="SAirBag" Type="int" />
+    <Property Name="Wagon" Type="int" />
+    <Property Name="convertable" Type="int" />
+    <Property Name="hatchback" Type="int" />
+    <Property Name="BoxLiner" Type="int" />
+    <Property Name="BoxCover" Type="int" />
+    <Property Name="rearslidingwindow" Type="int" />
+    <Property Name="dualrearwheels" Type="int" />
+    <Property Name="Winch" Type="int" />
+    <Property Name="runningboards" Type="int" />
+    <Property Name="cdStacker" Type="int" />
+  </EntityType>
+  <EntityType Name="Finance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="saleId" Type="int" />
+    <Property Name="DatePaid" Type="datetime" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Payment" Type="float" />
+    <Property Name="Short" Type="float" />
+    <Property Name="Addin" Type="float" />
+    <Property Name="Balance" Type="float" />
+    <Property Name="Open" Type="smallint" />
+  </EntityType>
+  <EntityType Name="FollowUp">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="customerid" Type="int" />
+    <Property Name="salespersonid" Type="int" />
+    <Property Name="saleid" Type="int" />
+    <Property Name="saleorlease" Type="int" />
+    <Property Name="followdate" Type="datetime" />
+    <Property Name="followtype" Type="int" />
+    <Property Name="notes" Type="nvarchar(max)" />
+    <Property Name="complete" Type="int" />
+    <Property Name="what" Type="int" />
+    <Property Name="submitdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Insurance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="InsuranceCompanyId" Type="int" />
+    <Property Name="Brokerid" Type="int" />
+    <Property Name="PolicyNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Coverage" Type="int" />
+    <Property Name="ExpiryDate" Type="datetime" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="InsuranceBroker">
+    <Key>
+      <PropertyRef Name="BrokerId" />
+    </Key>
+    <Property Name="BrokerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BrokerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BrokerAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="BrokerCity" Type="nvarchar" MaxLength="20" />
+    <Property Name="BrokerProvince" Type="nvarchar" MaxLength="2" />
+    <Property Name="BrokerPostal" Type="nvarchar" MaxLength="10" />
+    <Property Name="BrokerCountry" Type="nvarchar" MaxLength="10" />
+    <Property Name="BrokerPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="BrokerFax" Type="nvarchar" MaxLength="20" />
+    <Property Name="BrokerEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="PolicyNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Coverage" Type="int" />
+    <Property Name="ExpiryDate" Type="datetime" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="InsuranceCompany">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+    </Key>
+    <Property Name="CompanyId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="InsuranceCompany" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyCity" Type="nvarchar" MaxLength="20" />
+    <Property Name="CompanyProvince" Type="nvarchar" MaxLength="2" />
+    <Property Name="CompanyPostal" Type="nvarchar" MaxLength="10" />
+    <Property Name="CompanyCountry" Type="nvarchar" MaxLength="10" />
+    <Property Name="CompanyPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="CompanyFax" Type="nvarchar" MaxLength="20" />
+    <Property Name="CompanyEmail" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="InsuranceVehicle">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="insuranceid" Type="int" />
+    <Property Name="VehicleId" Type="int" />
+  </EntityType>
+  <EntityType Name="Lease">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="VehicleId" Type="int" Nullable="false" />
+    <Property Name="TradeInId" Type="int" />
+    <Property Name="InitialPrice" Type="float" />
+    <Property Name="TradeInAllowance" Type="float" />
+    <Property Name="AdminFee" Type="float" />
+    <Property Name="Warranty" Type="float" />
+    <Property Name="WarrantyGST" Type="float" />
+    <Property Name="Down" Type="float" />
+    <Property Name="Rate" Type="float" />
+    <Property Name="NoPayments" Type="int" Nullable="false" />
+    <Property Name="PaymentAmount" Type="float" />
+    <Property Name="InterestCalculated" Type="float" Nullable="false" />
+    <Property Name="Current" Type="bit" Nullable="false" />
+    <Property Name="Milage" Type="int" />
+    <Property Name="SalesPerson" Type="int" />
+    <Property Name="notes" Type="nvarchar(max)" />
+    <Property Name="TotalCostofVehicle" Type="float" />
+    <Property Name="GrossCommission" Type="float" />
+    <Property Name="FlatCommission" Type="float" />
+  </EntityType>
+  <EntityType Name="LeasePayments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LeaseId" Type="int" />
+    <Property Name="PmtNo" Type="int" />
+    <Property Name="DatePaid" Type="datetime" />
+    <Property Name="PaymentAmount" Type="float" />
+    <Property Name="Principle" Type="float" />
+    <Property Name="Interest" Type="float" />
+    <Property Name="GST" Type="float" />
+    <Property Name="Balance" Type="float" />
+  </EntityType>
+  <EntityType Name="Liens">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="VehicleId" Type="int" />
+    <Property Name="RegNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExpiryDate" Type="datetime" />
+    <Property Name="Customer" Type="int" />
+  </EntityType>
+  <EntityType Name="Payroll">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="salesperson" Type="int" />
+    <Property Name="Hours" Type="float" />
+    <Property Name="EI" Type="float" />
+    <Property Name="CPP" Type="float" />
+    <Property Name="Tax" Type="float" />
+    <Property Name="Advance" Type="float" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="misc" Type="float" />
+    <Property Name="company" Type="int" />
+  </EntityType>
+  <EntityType Name="requests">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="requestdate" Type="datetime" />
+    <Property Name="customerId" Type="int" />
+    <Property Name="minprice" Type="int" />
+    <Property Name="maxprice" Type="int" />
+    <Property Name="type1" Type="int" />
+    <Property Name="make1" Type="nvarchar" MaxLength="20" />
+    <Property Name="model1" Type="nvarchar" MaxLength="20" />
+    <Property Name="year1" Type="nvarchar" MaxLength="5" />
+    <Property Name="color1" Type="nvarchar" MaxLength="20" />
+    <Property Name="type2" Type="int" />
+    <Property Name="make2" Type="nvarchar" MaxLength="20" />
+    <Property Name="model2" Type="nvarchar" MaxLength="20" />
+    <Property Name="year2" Type="nvarchar" MaxLength="5" />
+    <Property Name="color2" Type="nvarchar" MaxLength="20" />
+    <Property Name="notes" Type="nvarchar(max)" />
+    <Property Name="salesperson" Type="int" />
+  </EntityType>
+  <EntityType Name="Sale">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="VehicleId" Type="int" Nullable="false" />
+    <Property Name="VehicleMilage" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="TradeInVehicle" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="SalesPerson" Type="int" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="TradeAllowance" Type="float" />
+    <Property Name="AdminFee" Type="float" />
+    <Property Name="Interest" Type="float" />
+    <Property Name="GST" Type="float" />
+    <Property Name="Deposit" Type="float" />
+    <Property Name="Warranty" Type="float" />
+    <Property Name="WarrantyGST" Type="float" />
+    <Property Name="TotalBalance" Type="float" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="Rate" Type="float" />
+    <Property Name="PaymentDue" Type="float" />
+    <Property Name="noPayments" Type="int" />
+    <Property Name="paymentFrequency" Type="int" />
+    <Property Name="current" Type="bit" Nullable="false" />
+    <Property Name="TotalCostofVehicle" Type="float" />
+    <Property Name="PayoutonLien" Type="float" />
+    <Property Name="CurrentBalance" Type="float" />
+    <Property Name="GrossCommission" Type="float" />
+    <Property Name="FlatCommission" Type="float" />
+  </EntityType>
+  <EntityType Name="Specifications">
+    <Key>
+      <PropertyRef Name="VehicleId" />
+    </Key>
+    <Property Name="VehicleId" Type="int" Nullable="false" />
+    <Property Name="DateIn" Type="datetime" />
+    <Property Name="Milage" Type="int" Nullable="false" />
+    <Property Name="Transmission" Type="int" />
+    <Property Name="DriveTrain" Type="int" />
+    <Property Name="Gears" Type="int" />
+    <Property Name="EngineSize" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cylinders" Type="int" />
+    <Property Name="FuelType" Type="int" />
+    <Property Name="Doors" Type="int" />
+    <Property Name="Tonnage" Type="int" />
+    <Property Name="Axle" Type="int" />
+    <Property Name="Cab" Type="int" />
+    <Property Name="Box" Type="int" />
+    <Property Name="HitchType" Type="int" />
+    <Property Name="SeatType" Type="int" />
+    <Property Name="BackSeatType" Type="int" />
+    <Property Name="Windowprice" Type="int" />
+    <Property Name="InternetPrice" Type="int" />
+    <Property Name="Safety" Type="int" />
+    <Property Name="ServiceHistory" Type="int" />
+    <Property Name="FactoryWarranty" Type="int" />
+    <Property Name="OneOwner" Type="int" />
+    <Property Name="TowPackage" Type="int" />
+    <Property Name="Topper" Type="int" />
+    <Property Name="WheelType" Type="int" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SIN" Type="int" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="20" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="20" />
+    <Property Name="Street" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="20" />
+    <Property Name="Province" Type="nvarchar" MaxLength="2" />
+    <Property Name="Postal" Type="nvarchar" MaxLength="15" />
+    <Property Name="HomePhone" Type="nvarchar" MaxLength="15" />
+    <Property Name="OtherPhone" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" MaxLength="30" />
+    <Property Name="Birthdate" Type="datetime" />
+    <Property Name="Job" Type="int" />
+    <Property Name="Salary" Type="int" />
+    <Property Name="Commission" Type="smallint" />
+    <Property Name="Password" Type="nvarchar" MaxLength="10" />
+    <Property Name="HourlyPay" Type="float" />
+  </EntityType>
+  <EntityType Name="TmpCalculation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="PmtNo" Type="int" />
+    <Property Name="PaymentAmount" Type="float" />
+    <Property Name="Principle" Type="float" />
+    <Property Name="Interest" Type="float" />
+    <Property Name="GST" Type="float" />
+    <Property Name="Balance" Type="float" />
+    <Property Name="Cost" Type="float" />
+    <Property Name="InterestRate" Type="float" />
+    <Property Name="Months" Type="int" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="VIN" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Make" Type="nvarchar" MaxLength="20" />
+    <Property Name="Model" Type="nvarchar" MaxLength="20" />
+    <Property Name="Year" Type="int" />
+    <Property Name="Colour" Type="nvarchar" MaxLength="20" />
+    <Property Name="Type" Type="int" />
+    <Property Name="InStock" Type="smallint" />
+    <Property Name="DatePurchased" Type="nvarchar" MaxLength="50" />
+    <Property Name="InitialCost" Type="float" />
+    <Property Name="SubModel" Type="nvarchar" MaxLength="20" />
+    <Property Name="InteriorColor" Type="nvarchar" MaxLength="20" />
+    <Property Name="photoPath" Type="nvarchar" MaxLength="60" />
+    <Property Name="Company" Type="int" />
+    <Property Name="PurchasedFrom" Type="nvarchar" MaxLength="50" />
+    <Property Name="notes" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'DealershipManager.dbo.Current_Vehicles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Current_Vehicles">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="VIN" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="VIN" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Make" Type="nvarchar" MaxLength="20" />
+    <Property Name="Model" Type="nvarchar" MaxLength="20" />
+    <Property Name="Year" Type="int" />
+    <Property Name="Colour" Type="nvarchar" MaxLength="20" />
+    <Property Name="Type" Type="int" />
+    <Property Name="InStock" Type="smallint" />
+    <Property Name="DatePurchased" Type="nvarchar" MaxLength="50" />
+    <Property Name="InitialCost" Type="float" />
+    <Property Name="SubModel" Type="nvarchar" MaxLength="20" />
+    <Property Name="InteriorColor" Type="nvarchar" MaxLength="20" />
+    <Property Name="photoPath" Type="nvarchar" MaxLength="60" />
+    <Property Name="Company" Type="int" />
+    <Property Name="PurchasedFrom" Type="nvarchar" MaxLength="50" />
+    <Property Name="notes" Type="nvarchar(max)" />
+  </EntityType>
+</Schema>
